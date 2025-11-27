@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, distinct = 1;
+
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[n][n];
+
+    printf("Enter matrix elements:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // Check distinct diagonal elements
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (a[i][i] == a[j][j]) {
+                distinct = 0;
+                break;
+            }
+        }
+        if (!distinct) break;
+    }
+
+    if (distinct)
+        printf("Diagonal elements are DISTINCT");
+    else
+        printf("Diagonal elements are NOT DISTINCT");
+
+    return 0;
+}
