@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, found;
+
+    scanf("%d", &n);
+    int a[n];
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    for (i = 0; i < n; i++) {
+        found = -1;
+        for (j = i+1; j < n; j++) {
+            if (a[j] > a[i]) {
+                found = a[j];
+                break;
+            }
+        }
+        printf("%d", found);
+        if (i != n-1) printf(", ");
+    }
+
+    return 0;
+}
